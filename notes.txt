@@ -1,0 +1,19 @@
+# split a sprite sheet in multiple tiles (here out-00.png will be generated)
+convert in.png -crop 16x16 out.png
+for f in *_.png
+do
+  convert "$f" -crop 16x16 "${f//_.png/.png}"
+done
+
+#remove pink
+convert in.png -transparent '#ff00ff' out.png
+for f in *.png
+do
+  convert "$f" -transparent '#ff00ff' "${f//.png/_.png}"
+done
+
+# check png
+find . -type f -name "*.png" -exec pngcheck {} \;
+# imagemagick all png
+find . -type f -name "*.png" -exec convert {} {} \;
+

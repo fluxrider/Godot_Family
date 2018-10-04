@@ -1,0 +1,121 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://walls.tres" type="TileSet" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://dad/dad.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://baby/baby.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://mom/mom.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://hero/hero.tres" type="SpriteFrames" id=7]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 508.998, 165.798, 0, 0, 0, 0, 509.901, 692.855, 0, 0, 0, 0, 508.998, 429.327, 0, 0, 0, 0, 159.732, 429.327, 0, 0, 0, 0, 1099.23, 429.327, 0, 0, 0, 0, 508.998, 429.327, 0, 0, 0, 0, 508.998, 163.993 )
+}
+
+[sub_resource type="NavigationPolygon" id=2]
+
+vertices = PoolVector2Array( 361.482, 359.855, 355.164, 90.9117, 792.382, 101.721, 799.316, 426.742, 534.026, 474.976, 485.791, 473.469, 931.961, 429.756, 928.659, 95.4034, 1179.55, 101.721, 1182.95, 740.708, 932.963, 739.806, 930.256, 475.375, 795.582, 742.513, 105.173, 738.903, 99.7578, 614.359, 482.416, 610.749, 538.548, 612.143, 95.2454, 480.79, 97.0504, 97.2292, 216.18, 97.2292, 220.692, 364.368, 795.582, 616.164 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 6, 7, 8, 9 ), PoolIntArray( 6, 9, 10, 11 ), PoolIntArray( 12, 13, 14, 15, 16 ), PoolIntArray( 3, 6, 11, 4 ), PoolIntArray( 17, 18, 19, 20 ), PoolIntArray( 5, 17, 20, 0 ), PoolIntArray( 15, 5, 4, 16 ), PoolIntArray( 12, 16, 21 ) ]
+outlines = [ PoolVector2Array( 97.0504, 97.2292, 216.18, 97.2292, 220.692, 364.368, 361.482, 359.855, 355.164, 90.9117, 792.382, 101.721, 799.316, 426.742, 931.961, 429.756, 928.659, 95.4034, 1179.55, 101.721, 1182.95, 740.708, 932.963, 739.806, 930.256, 475.375, 534.026, 474.976, 538.548, 612.143, 795.582, 616.164, 795.582, 742.513, 105.173, 738.903, 99.7578, 614.359, 482.416, 610.749, 485.791, 473.469, 95.2454, 480.79 ) ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 4, 4 )
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 0.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 65536, 0, 0, 65540, 0, 0, 65549, 0, 0, 65555, 0, 0, 131072, 0, 0, 131076, 0, 0, 131085, 0, 0, 131091, 0, 0, 196608, 0, 0, 196612, 0, 0, 196621, 0, 0, 196627, 0, 0, 262144, 0, 0, 262148, 0, 0, 262157, 0, 0, 262163, 0, 0, 327680, 0, 0, 327693, 0, 0, 327699, 0, 0, 393216, 0, 0, 393235, 0, 0, 458752, 0, 0, 458771, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524307, 0, 0, 589824, 0, 0, 589837, 0, 0, 589843, 0, 0, 655360, 0, 0, 655373, 0, 0, 655379, 0, 0, 720896, 0, 0, 720909, 0, 0, 720915, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0 )
+_sections_unfolded = [ "Cell", "Collision", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PickupPlaceholder" type="Node2D" parent="."]
+
+[node name="PickupTimer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = true
+
+[node name="Dad" parent="." instance=ExtResource( 3 )]
+position = Vector2( 157.996, 172.698 )
+scale = Vector2( 4, 4 )
+motion/sync_to_physics = false
+ai = "navigate"
+target = NodePath("../Player")
+nav = NodePath("../Navigation2D")
+frames = ExtResource( 4 )
+
+[node name="Baby" parent="." instance=ExtResource( 3 )]
+position = Vector2( 451.947, 408.193 )
+scale = Vector2( 4, 4 )
+motion/sync_to_physics = false
+speed = 75
+ai = "follow"
+target = NodePath("../Player")
+frames = ExtResource( 5 )
+
+[node name="Mom" parent="." instance=ExtResource( 3 )]
+position = Vector2( 695.792, 176.039 )
+scale = Vector2( 4, 4 )
+motion/sync_to_physics = false
+speed = 100
+ai = "patrol"
+target = NodePath("../Path2D/PathFollow2D")
+frames = ExtResource( 6 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1017.72, 293.681 )
+scale = Vector2( 4, 4 )
+collision/safe_margin = 0.001
+motion/sync_to_physics = false
+_sections_unfolded = [ "Transform", "Z Index", "collision" ]
+speed = 200
+ai = "player"
+nav = NodePath("../Navigation2D")
+frames = ExtResource( 7 )
+
+[node name="Path2D" type="Path2D" parent="."]
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+curve = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 508.998, 165.798 )
+rotation = 1.56909
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 2 )
+enabled = true
+
+[connection signal="timeout" from="PickupTimer" to="." method="_on_PickupTimer_timeout"]
